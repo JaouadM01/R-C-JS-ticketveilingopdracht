@@ -2,18 +2,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0a1128;
   padding: 1rem 2rem;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  background: linear-gradient(135deg, #0a1128, #1c2541);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
 .logo {
-  font-size: 1.5rem;
-  font-weight: 600;
+  font-size: 1.75rem;
+  font-weight: 700;
   color: #ffffff;
+  letter-spacing: 1px;
+  user-select: none;
+  white-space: nowrap;
 }
 
 .nav-links {
@@ -22,20 +25,39 @@
 }
 
 .nav-link {
-  color: #dbe2ef;
+  position: relative;
   text-decoration: none;
+  color: #dbe2ef;
   font-weight: 500;
-  padding: 0.5rem 0.75rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
+  font-size: 1rem;
+  padding: 0.5rem 0.25rem;
+  transition: color 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background-color: #3f72af;
+  transition: width 0.3s ease;
 }
 
 .nav-link:hover {
-  background-color: #1e2a4a;
   color: #ffffff;
 }
 
+.nav-link:hover::after {
+  width: 100%;
+}
+
 .nav-link.active {
-  background-color: #3f72af;
-  color: white;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.nav-link.active::after {
+  width: 100%;
 }
