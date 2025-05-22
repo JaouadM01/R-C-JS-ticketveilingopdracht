@@ -1,0 +1,35 @@
+.notfound-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 70vh;
+  text-align: center;
+  font-family: 'Segoe UI', sans-serif;
+  color: #2e3a59;
+}
+
+.notfound-container h1 {
+  font-size: 6rem;
+  margin-bottom: 0.5rem;
+  color: #0077ff;
+}
+
+.notfound-container p {
+  font-size: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.back-home-button {
+  text-decoration: none;
+  background-color: #0077ff;
+  color: white;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.back-home-button:hover {
+  background-color: #005ed6;
+}

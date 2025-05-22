@@ -9,6 +9,18 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlite("Data Source=tickets.db"));
 
+
+// Add CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowFrontend", policy =>
+    {
+        policy.WithOrigins("http://localhost:5173") // frontend URL
+              .AllowAnyHeader()
+              .AllowAnyMethod();
+    });
+});
+
 // DI registraties
 builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<ITicketService, TicketService>();
@@ -26,6 +38,10 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+// Use CORS before routing
+app.UseCors("AllowFrontend");
+
 
 app.UseAuthorization();
 app.MapControllers();

@@ -58,7 +58,31 @@ const TicketBuilderForm = () => {
         };
 
         setOutputJson(payload);
+        console.log(payload);
     };
+
+    const handleSubmissionTicket = async (outputJson) => {
+        try {
+            const response = await fetch('http://localhost:5028/api/Tickets', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(outputJson)
+            });
+            if(response.ok){
+                alert("Ticket has been succesfully submitted");
+                setFormData({});
+                setOutputJson(null);
+            }
+            
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+        } catch (err) {
+            alert(`Error submitting ticket: ${err.message}`);
+        }
+    }
 
     return (
         <div className="ticket-form-container">
@@ -92,7 +116,9 @@ const TicketBuilderForm = () => {
                 <div className="ticket-form-output">
                     <h3>🎟️ TicketInputDto JSON</h3>
                     <pre>{JSON.stringify(outputJson, null, 2)}</pre>
+                    <button onClick={() => handleSubmissionTicket(outputJson)}>Submit Ticket</button>
                 </div>
+
             )}
         </div>
     );
