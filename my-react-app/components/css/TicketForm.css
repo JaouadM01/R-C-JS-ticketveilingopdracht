@@ -62,3 +62,35 @@
   white-space: pre-wrap;
   font-family: 'Courier New', monospace;
 }
+/* Error styling for input fields */
+input:invalid,
+textarea:invalid {
+  border-color: #e63946;
+}
+
+.error-message {
+  color: #e63946;
+  font-size: 1.25rem;
+  margin-top: 4px;
+  margin-bottom: 12px;
+}
+
+/* Optional: add error glow on focus */
+input:focus:invalid {
+  box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.3);
+}
+
+/* Style the input normally */
+input {
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  width: 100%;
+  transition: border-color 0.2s ease;
+}
+
+input:focus {
+  outline: none;
+  border-color: #0077ff;
+}
