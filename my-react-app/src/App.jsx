@@ -6,6 +6,7 @@ import HomePage from '../components/HomePage'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import NotFound from '../components/NotFound'
 import TicketMarket from '../components/TicketMarket'
+import IntegrationExplanationPage from '../components/IntegrationExplanationPage'
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/ticket-builder" element={<TicketBuilderForm />} />
+        <Route path="/ticket-integration" element={<IntegrationExplanationPage />} />
         <Route path="/ticket-market" element={<TicketMarket />} />
         <Route path="/elaboration" element={<div>Coming soon: elaboration</div>} />
         <Route path="*" element={<NotFound />} />
