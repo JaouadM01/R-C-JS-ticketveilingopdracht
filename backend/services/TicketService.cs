@@ -38,12 +38,10 @@ public class TicketService : ITicketService
         if (!Enum.TryParse<TicketType>(ticketdto.Type, ignoreCase: true, out var parsedType))
             throw new ArgumentException("Ongeldig tickettype. Gebruik bijv. 'Concert', 'AmusementPark', 'Movie', 'Museum', 'Theater', 'SportsEvent', 'Festival', 'Workshop', 'Exhibition', 'Transport', 'Zoo', 'Aquarium', 'Conference'.");
 
-        var jsonData = JsonSerializer.Serialize(ticketdto.Data);
-
         var ticket = new Ticket
         {
             Type = parsedType,
-            Data = jsonData
+            Data = ticketdto.JsonData
         };
 
         await _repository.AddAsync(ticket);

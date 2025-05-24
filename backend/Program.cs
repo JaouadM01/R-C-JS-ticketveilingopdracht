@@ -25,6 +25,10 @@ builder.Services.AddCors(options =>
 builder.Services.AddScoped<ITicketRepository, TicketRepository>();
 builder.Services.AddScoped<ITicketService, TicketService>();
 
+builder.Services.AddScoped<IConcertTicketExampleRepository, ConcertTicketExampleRepository>();
+builder.Services.AddScoped<IConcertTicketExampleService, ConcertTicketExampleService>();
+
+
 // Controllers en Swagger
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
